@@ -2,6 +2,12 @@
     background-color: #e3f2fd;
     border-radius: 5px;
 }
+h1{
+    padding-left: 5px;
+}
+.d-flex{
+    padding-right: 5px;
+}
 .img{
     width: 100%;
     margin-top: 0px;
@@ -51,6 +57,37 @@ a:hover{
 animation: shake 0.3s;
 animation-iteration-count: 0.5;
  }
+
+#burger{
+    font-size: 30px;
+    background-color:  #e3f2fd;
+}
+ .d-flex #burger {
+    display: none;
+  }
+  
+  @media screen and (max-width: 600px) {
+    .d-flex button:not(:first-child) {display: none;}
+    .d-flex input {display: none;}
+    .d-flex #burger {
+      float: right;
+      display: block;
+    }
+  }
+  
+  @media screen and (max-width: 600px) {
+    .d-flex.responsive {position: relative;}
+    .d-flex.responsive {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .d-flex.responsive #burger {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+  }
  /*Aqui é a animação para o tremor das imagens*/
   @keyframes shake {
     0% { transform: translate(1px, 1px) rotate(0deg); }

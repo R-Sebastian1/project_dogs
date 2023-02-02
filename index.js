@@ -41,7 +41,7 @@ let input="";
 
   searchButton1.addEventListener("click", () => {
 
-  if (inputsearch1.value) {
+  if (inputsearch1.value!=getDogsData.name) {
     
     searchButton1=document.getElementById("button");
     searchButton1.onclick=function(){
@@ -111,3 +111,11 @@ function mostraPagina(dogs){
   })
 }
 getDogsData();
+function myFunction() {
+  var x = document.getElementById("isso");
+  if (x.className === "navbar") {
+    x.className += " responsive";
+  } else {
+    x.className = "navbar";
+  }
+}

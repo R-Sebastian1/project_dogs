@@ -13,23 +13,27 @@
     
 <main class="sticky-top">
     <div class="container-fluid">
-        <div class="navbar">
-            <h1 class="navbar-brand"><span><i class="fa-solid fa-paw"></i></span>Doggy</h1>
-            <div class="d-flex" role="search">
+        <div class="navbar" id="navbar">
+            <h1 class="navbar-brand" id="brand"><span><i class="fa-solid fa-paw"></i></span>Doggy</h1>
+            <div class="d-flex" id="isso" role="search">
                 <input id="searchText" class="form-control me-2" type="text" placeholder="Procurar..." aria-label="Busca">
                 <button id="button" class="btn btn-outline-success" type="button" data-mb-toggle="modal" data-mb-target="#exampleModalCenter">Busca!</button>
+                <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <i id="burger" class="fa fa-bars"></i>
+                  </a>
             </div>
         </div>
     </div>
 </main>
 
 <div id="caes"></div>
+<div id="erro"></div>
 
 <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title float-middle" id="exampleModalCenterTitle">Erro!</h5>
+                <h5 class="modal-title" id="exampleModalCenterTitle">Erro!</h5>
                 <button type="button" class="btn-close" data-mb-dismiss="modal" aria-label="Close">
                 </button>
             </div>
