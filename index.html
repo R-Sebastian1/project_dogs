@@ -16,8 +16,8 @@
         <div class="navbar">
             <h1 class="navbar-brand"><span><i class="fa-solid fa-paw"></i></span>Doggy</h1>
             <div class="d-flex" role="search">
-                <input id="searchText" class="form-control me-2" type="text" placeholder="Busca" aria-label="Busca">
-                <button id="button" class="btn btn-outline-success" type="button" data-toggle="modal" data-target="#exampleModalCenter">Busca!</button>
+                <input id="searchText" class="form-control me-2" type="text" placeholder="Procurar..." aria-label="Busca">
+                <button id="button" class="btn btn-outline-success" type="button" data-mb-toggle="modal" data-mb-target="#exampleModalCenter">Busca!</button>
             </div>
         </div>
     </div>
@@ -25,20 +25,19 @@
 
 <div id="caes"></div>
 
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title float-middle" id="exampleModalCenterTitle">Erro!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                <button type="button" class="btn-close" data-mb-dismiss="modal" aria-label="Close">
                 </button>
             </div>
             <div class="modal-body">
                 <p>Por favor introduza o nome de um cão que pretende pesquisar!</p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-mb-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

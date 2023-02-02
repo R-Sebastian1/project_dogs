@@ -19,7 +19,7 @@ let input="";
   searchButton.addEventListener("click", () => {
 
   if (!inputsearch.value) {
-    /*Aqui supostamemte devia aparecer o modal, mas ele aparece com opacity 0 :\ */
+    /*Aqui aparece o modal, top */
     searchButton=document.getElementById("button");
     searchButton.onclick=function(){
       modal.style.display="block";
@@ -58,9 +58,11 @@ let input="";
       erro.appendChild(erroTexto);
       erro.appendChild(imgErro);
       erro.appendChild(erroTexto1);
-
     }
   } else{
+    while(erro.firstChild){
+      erro.removeChild(erro.firstChild);
+    }
     input = document.getElementById("searchText").value;
     currentPage = 1;
     getDogsData();
