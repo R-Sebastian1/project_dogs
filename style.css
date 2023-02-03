@@ -81,6 +81,10 @@ animation-iteration-count: 0.5;
   #erro{
     font-size: 200px;
   }
+  #numeroPagina{
+    padding-left: 8px;
+    padding-right: 8px;
+  }
   
   @media screen and (max-width: 600px) {
     .d-flex button:not(:first-child) {display: none;}
