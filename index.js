@@ -48,7 +48,7 @@ function mostraPagina(dogs) {
   while (firstDisplay.firstChild) {
     firstDisplay.removeChild(firstDisplay.firstChild);
   }
-  dogs.forEach(dogs => {
+    dogs.forEach(dogs => {
     console.log(dogs);
 
     let div1 = document.createElement("div");
