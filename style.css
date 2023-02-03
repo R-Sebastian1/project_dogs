@@ -53,6 +53,15 @@ a:hover{
     background-color: rgba(0, 0, 0, 0.75);
     transition: opacity 250ms ease;
  }
+ .modal-body{
+  text-align: center;
+ }
+ #bone{
+  color: rgb(235, 144, 25);
+ }
+ #butaofechar:hover{
+  background-color:crimson;
+ }
  i:hover{
 animation: shake 0.3s;
 animation-iteration-count: 0.5;
@@ -64,6 +73,10 @@ animation-iteration-count: 0.5;
 }
  .d-flex #burger {
     display: none;
+  }
+  .column{
+    display: flex;
+    justify-content: center;
   }
   
   @media screen and (max-width: 600px) {

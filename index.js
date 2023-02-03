@@ -1,73 +1,36 @@
 let paginaAtual=1;
-let input="";
+let input='';
+let limitPagina=24;
+
 
 /*Aqui faz o fetch para depois fazer a paginação*/
   function getDogsData() {
     
-      fetch(`http://localhost:3000/dogs?_page=${paginaAtual}&_limit=12&q=${input}`)
-      .then(response => response.json())  
+      fetch(`http://localhost:3000/dogs?_page=${paginaAtual}&_limit=${limitPagina}&q=${input}`)
+      .then(response =>{ 
+        let itemsTotais=response.headers.get("x-total-count");
+        paginasTotais=Math.ceil(itemsTotais/limitPagina);
+        return response.json();
+      })  
       .then(dogs => {
         mostraPagina(dogs);
       })
       .catch(error => console.log(error));
   }
-/*Aqui temos o search box e o botão para fazer a pesquisa*/
-  let inputsearch = document.getElementById("searchText");
-  let searchButton = document.getElementById("button");
-  let modal=document.getElementById("exampleModalCenter");
 
-  searchButton.addEventListener("click", () => {
-
-  if (!inputsearch.value) {
-    /*Aqui aparece o modal, top */
-    searchButton=document.getElementById("button");
-    searchButton.onclick=function(){
-      modal.style.display="block";
-    }
-    window.onclick=function(event){
-      if(event.target==modal){
-        modal.style.display="none";
-      }
-    } 
-  } else{
-    input = document.getElementById("searchText").value;
-    currentPage = 1;
-    getDogsData();
-  }
-  })
 /*Aqui é uma função parecida mas quando introduzes nomes a sorte aparece o icon e texto a dizer nada encontrado*/
-  let inputsearch1 = document.getElementById("searchText");
-  let searchButton1 = document.getElementById("button");
-
-  searchButton1.addEventListener("click", () => {
-
-  if (inputsearch1.value!=getDogsData.name) {
-    
-    searchButton1=document.getElementById("button");
-    searchButton1.onclick=function(){
-
-      let erro=document.getElementById("erro");
-      erro.className='small-4 medium-4 large-4 columns text-center';
-      let erroTexto=document.createElement("h1");
-      erroTexto.innerHTML='Nothing to see here! :/';
-      let erroTexto1=document.createElement("h2");
-      erroTexto1.innerHTML='0 Results';
-      let imgErro=document.createElement("i");
-      imgErro.className="i fa-solid fa-shield-dog fa-10x";
-      imgErro.id='icon';
-      erro.appendChild(erroTexto);
-      erro.appendChild(imgErro);
-      erro.appendChild(erroTexto1);
+  let inputsearch = document.getElementById("searchText");
+  let searchButton = document.getElementById("buttonSearch");
+  searchButton.addEventListener("click",()=>{
+    if (!inputsearch.value) {
+      showModal();
+    } 
+    else {
+      input = document.getElementById("searchText").value;
+      paginaAtual = 1;
+      getDogsData();
     }
-  } else{
-    while(erro.firstChild){
-      erro.removeChild(erro.firstChild);
-    }
-    input = document.getElementById("searchText").value;
-    currentPage = 1;
-    getDogsData();
-  }
-  })
+  });
 
   /*Aqui faz-se a criação das paginas com toda a informação lá dentro: img, nome, e o botao "download"*/
 function mostraPagina(dogs){
@@ -111,6 +74,8 @@ function mostraPagina(dogs){
   })
 }
 getDogsData();
+butaoPaginas();
+
 function myFunction() {
   var x = document.getElementById("isso");
   if (x.className === "navbar") {
@@ -118,4 +83,57 @@ function myFunction() {
   } else {
     x.className = "navbar";
   }
+}
+
+function butaoPaginas(){
+  let paginas=document.getElementById("paginas");
+  paginas.classList.add("container-fluid","sticky-bottom");
+  let paginas1=document.createElement("div");
+  paginas1.classList.add("column");
+  let paginastext=document.createElement("h3");
+  paginastext.innerHTML=paginaAtual;
+
+  let butaoAnterior=document.createElement("button");
+  butaoAnterior.innerText="Back";
+  butaoAnterior.classList.add("btn", "btn-primary");
+
+  butaoAnterior.addEventListener("click",()=>{
+    paginaAtual--;
+    getDogsData();
+  })
+
+  let butaoSeguinte=document.createElement("button");
+  butaoSeguinte.innerText="Next";
+  butaoSeguinte.classList.add("btn", "btn-primary");
+  
+  butaoSeguinte.addEventListener("click",()=>{
+    paginaAtual++;
+    getDogsData();
+  })
+  paginas.appendChild(paginas1);
+  paginas1.appendChild(butaoAnterior);
+  paginas1.appendChild(paginastext);
+  paginas1.appendChild(butaoSeguinte);
+}
+
+function showModal(){
+ let modal=document.getElementById("exampleModalCenter");
+ modal.style.display="block";
+ programarButaoFechar();
+ programarButaoFecharX();
+}
+
+function programarButaoFecharX() {
+  let fechar=document.getElementById("fechar");
+  let modal=document.getElementById("exampleModalCenter");
+  fechar.addEventListener("click",()=>{
+    modal.style.display="none";
+  })
+}
+function programarButaoFechar(){
+  let butaofechar=document.getElementById("butaofechar");
+  let modal=document.getElementById("exampleModalCenter");
+  butaofechar.addEventListener("click",()=>{
+    modal.style.display="none";
+  })
 }

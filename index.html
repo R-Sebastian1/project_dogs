@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+
+    <div id="x-total-count"></div>
     
 <main class="sticky-top">
     <div class="container-fluid">
@@ -17,7 +19,7 @@
             <h1 class="navbar-brand" id="brand"><span><i class="fa-solid fa-paw"></i></span>Doggy</h1>
             <div class="d-flex" id="isso" role="search">
                 <input id="searchText" class="form-control me-2" type="text" placeholder="Procurar..." aria-label="Busca">
-                <button id="button" class="btn btn-outline-success" type="button" data-mb-toggle="modal" data-mb-target="#exampleModalCenter">Busca!</button>
+                <button id="buttonSearch" class="btn btn-outline-success" type="button">Busca!</button>
                 <a href="javascript:void(0);" class="icon" onclick="myFunction()">
                     <i id="burger" class="fa fa-bars"></i>
                   </a>
@@ -27,27 +29,26 @@
 </main>
 
 <div id="caes"></div>
-<div id="erro"></div>
 
 <div class="modal" id="exampleModalCenter" role="dialog" aria-labelledby="exampleModalCenterTitle">
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalCenterTitle">Erro!</h5>
-                <button type="button" class="btn-close" data-mb-dismiss="modal" aria-label="Close">
-                </button>
+                <button type="button" class="btn-close" id="fechar"></button>
             </div>
             <div class="modal-body">
                 <p>Por favor introduza o nome de um cão que pretende pesquisar!</p>
+                <i class="fa-solid fa-bone" id="bone"></i>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-mb-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-warning" id="butaofechar">Close</button>
             </div>
         </div>
     </div>
 </div>
 
-<div id="erro">
+<div id="paginas" class="container-fluid"></div>
 
 </div>
     <script src="index.js"></script>
