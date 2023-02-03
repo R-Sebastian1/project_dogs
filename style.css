@@ -78,6 +78,9 @@ animation-iteration-count: 0.5;
     display: flex;
     justify-content: center;
   }
+  #erro{
+    font-size: 200px;
+  }
   
   @media screen and (max-width: 600px) {
     .d-flex button:not(:first-child) {display: none;}

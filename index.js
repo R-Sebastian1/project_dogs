@@ -1,19 +1,21 @@
-let paginaAtual=1;
+var paginaAtual=0;
 let input='';
-let limitPagina=24;
+var limitPagina=24;
 
 
 /*Aqui faz o fetch para depois fazer a paginação*/
   function getDogsData() {
     
-      fetch(`http://localhost:3000/dogs?_page=${paginaAtual}&_limit=${limitPagina}&q=${input}`)
+      fetch(`http://localhost:3000/dogs?&_page=${paginaAtual}&_limit=${limitPagina}&name_like=${input}`)
       .then(response =>{ 
-        let itemsTotais=response.headers.get("x-total-count");
+        let itemsTotais=response.headers.get("X-Total-Count");
         paginasTotais=Math.ceil(itemsTotais/limitPagina);
         return response.json();
       })  
       .then(dogs => {
         mostraPagina(dogs);
+        butaoPaginasBack();
+        butaoPaginasNext();
       })
       .catch(error => console.log(error));
   }
@@ -42,8 +44,8 @@ function mostraPagina(dogs){
 
   while(firstDisplay.firstChild){
     firstDisplay.removeChild(firstDisplay.firstChild);
+    mostrarErro();
   }
-
   dogs.forEach(dogs=>{
     console.log(dogs);
 
@@ -74,7 +76,6 @@ function mostraPagina(dogs){
   })
 }
 getDogsData();
-butaoPaginas();
 
 function myFunction() {
   var x = document.getElementById("isso");
@@ -85,35 +86,21 @@ function myFunction() {
   }
 }
 
-function butaoPaginas(){
-  let paginas=document.getElementById("paginas");
-  paginas.classList.add("container-fluid","sticky-bottom");
-  let paginas1=document.createElement("div");
-  paginas1.classList.add("column");
-  let paginastext=document.createElement("h3");
-  paginastext.innerHTML=paginaAtual;
-
-  let butaoAnterior=document.createElement("button");
-  butaoAnterior.innerText="Back";
-  butaoAnterior.classList.add("btn", "btn-primary");
-
+function butaoPaginasBack(){
+  let butaoAnterior=document.getElementById("back");
+  let h3=document.getElementById("numeroPagina");
+  h3.innerText=paginaAtual;
   butaoAnterior.addEventListener("click",()=>{
     paginaAtual--;
     getDogsData();
   })
-
-  let butaoSeguinte=document.createElement("button");
-  butaoSeguinte.innerText="Next";
-  butaoSeguinte.classList.add("btn", "btn-primary");
-  
+}
+function butaoPaginasNext(){
+  let butaoSeguinte=document.getElementById("next");
   butaoSeguinte.addEventListener("click",()=>{
     paginaAtual++;
     getDogsData();
   })
-  paginas.appendChild(paginas1);
-  paginas1.appendChild(butaoAnterior);
-  paginas1.appendChild(paginastext);
-  paginas1.appendChild(butaoSeguinte);
 }
 
 function showModal(){
@@ -136,4 +123,22 @@ function programarButaoFechar(){
   butaofechar.addEventListener("click",()=>{
     modal.style.display="none";
   })
+}
+
+function mostrarErro(){
+  let erro=document.getElementById("erro");
+  erro.className=("text-center");
+  let column=document.createElement("div");
+  column.className=("erro1");
+  let h1=document.createElement("h1");
+  h1.innerText="Nothing to see here!";
+  let icon=document.createElement("i");
+  icon.className="fa-solid fa-shield-dog";
+  let h2=document.createElement("h2");
+  h2.innerText="0 Results";
+
+  erro.appendChild(column);
+  column.appendChild(h1);
+  column.appendChild(icon);
+  column.appendChild(h2);
 }
