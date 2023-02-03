@@ -88,6 +88,8 @@ function myFunction() {
   }
 }
 
+
+
 function updatePaginaAtual() {
   let h3 = document.getElementById("numeroPagina");
   h3.innerText = paginaAtual;
