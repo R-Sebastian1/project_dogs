@@ -1,4 +1,4 @@
-var paginaAtual=0;
+var paginaAtual=1;
 let input='';
 var limitPagina=24;
 
@@ -43,9 +43,9 @@ function mostraPagina(dogs){
     div.className="row";
 
   while(firstDisplay.firstChild){
-    firstDisplay.removeChild(firstDisplay.firstChild);
-    mostrarErro();
-  }
+    firstDisplay.removeChild(firstDisplay.firstChild)
+    }
+
   dogs.forEach(dogs=>{
     console.log(dogs);
 
@@ -126,7 +126,11 @@ function programarButaoFechar(){
 }
 
 function mostrarErro(){
-  let erro=document.getElementById("erro");
+  let inputsearch = document.getElementById("searchText");
+  let searchButton = document.getElementById("buttonSearch");
+  searchButton.addEventListener("click",()=>{
+    if (!inputsearch.value) {
+      let erro=document.getElementById("erro");
   erro.className=("text-center");
   let column=document.createElement("div");
   column.className=("erro1");
@@ -141,4 +145,12 @@ function mostrarErro(){
   column.appendChild(h1);
   column.appendChild(icon);
   column.appendChild(h2);
+    } 
+    else {
+      input = document.getElementById("searchText").value;
+      paginaAtual = 1;
+      getDogsData();
+    }
+  });
 }
+mostrarErro();
