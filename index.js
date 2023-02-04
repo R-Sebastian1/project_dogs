@@ -93,10 +93,16 @@ getDogsData();
 
 function myFunction() {
   var x = document.getElementById("isso");
-  if (x.className === "navbar") {
-    x.className += " responsive";
+  if (x.className === "d-flex") {
+    x.className = "burger";
+    x.style.display="flex";
   } else {
-    x.className = "navbar";
+    x.className = "d-flex";
+  }
+  var w=window.innerWidth;
+
+  if (w>=700){
+    document.getElementById("burger1").style.display="hidden";
   }
 }
 /*Atualiza o texto com o numero da pagina correspondente */
@@ -108,7 +114,7 @@ function updatePaginaAtual() {
 function botaoBack() {
   if(paginaAtual===1){
     let back=document.getElementById("back");
-    back.ariaInvalid;
+    back.ariaDisabled;
   }
   else{
     paginaAtual--;

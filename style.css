@@ -85,27 +85,25 @@ animation-iteration-count: 0.5;
     padding-left: 8px;
     padding-right: 8px;
   }
-  
 
   @media screen and (max-width: 600px) {
     .d-flex button:not(:first-child) {display: none;}
     .d-flex input {display: none;}
     .d-flex #burger {
-      float: right;
-      display: block;
+      float:left;
+      display:flex;
     }
   }
   
-  @media screen and (max-width: 600px) {
-    .d-flex.responsive {position: relative;}
+  @media screen and (min-width: 600px) {
+    .d-flex.responsive {position:absolute;}
     .d-flex.responsive {
       position: absolute;
-      right: 0;
-      top: 0;
+      right: 20px;
+      top: 20px;
     }
     .d-flex.responsive #burger {
-      float: none;
-      display: block;
+      display:grid;
       text-align: left;
     }
   }

@@ -4,6 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="HTML, CSS, bootstrap, Javascript">
+    <meta name="description" content="Página de pesquisa e display de raças de cães">
+    <meta name="author" content="Remus Gaman, Richard Wagner">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Doggy Page</title>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -13,8 +16,6 @@
 
 <body>
 
-    <div id="x-total-count"></div>
-
     <main class="sticky-top">
         <div class="container-fluid">
             <div class="navbar" id="navbar">
@@ -22,9 +23,10 @@
                 <div class="d-flex" id="isso" role="search">
                     <input id="searchText" class="form-control me-2" type="text" placeholder="Procurar...">
                     <button id="buttonSearch" class="btn btn-outline-success" type="button">Busca!</button>
-                    <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+                    <a href="javascript:void(0)" id="burger1" class="icon" onclick="myFunction()">
                         <i id="burger" class="fa fa-bars"></i>
                     </a>
+                    
                 </div>
             </div>
         </div>
