@@ -20,16 +20,12 @@ function getDogsData() {
       }
       var butoes=document.getElementById("paginas");
       butoes.style.display="none"
-        var drop=document.getElementById("drop");
-        drop.style.display="none"
       mostrarErro();
     } else {
       if (document.getElementById("erro").children.length > 0) {
         document.getElementById("erro").replaceChildren();
         var butoes=document.getElementById("paginas");
         butoes.style.display="block";
-        var drop=document.getElementById("drop");
-        drop.style.display="block";
         /*aqui faz ao contrario, tira o erro e mete os cães caso se pesquise por um nome certo*/
       }
       mostraPagina(dogs);
@@ -66,11 +62,41 @@ function mostraPagina(dogs) {
   }
     dogs.forEach(dogs => {
     console.log(dogs);
+
+    let dropdowndiv=document.createElement("div");
+        dropdowndiv.className="dropdown container-fluid";
+        dropdowndiv.id="drop";
+        let dropdownul=document.createElement("ul");
+        dropdownul.className="dropdown-menu";
+        dropdownul.id="dropinfo"
+        let dropdownli=document.createElement("li");
+        let dropdownli2=document.createElement("li");
+        let dropdownli3=document.createElement("li");
+        let dropdownspan=document.createElement("span");
+        let dropdownspan2=document.createElement("span");
+        let dropdownspan3=document.createElement("span");
+        dropdownspan.className="dropdown-item";
+        dropdownspan2.className="dropdown-item";
+        dropdownspan3.className="dropdown-item";
+      
+        dropdowndiv.appendChild(dropdownul);
+        dropdownul.appendChild(dropdownli);
+        dropdownul.appendChild(dropdownli2);
+        dropdownul.appendChild(dropdownli3);
+        dropdownli.appendChild(dropdownspan);
+        dropdownli2.appendChild(dropdownspan2);
+        dropdownli3.appendChild(dropdownspan3);
+      
+        dropdownspan.innerText="Life Span: "+dogs.life_span;
+        dropdownspan2.innerText="Bred For: "+dogs.bred_for;
+        dropdownspan3.innerText="Temperament: "+dogs.temperament;
+
     let div1 = document.createElement("div");
     div1.className = "col-sm-6 col-md-4 col-lg-3 gy-2";
 
     let card = document.createElement("div");
     card.className = "card";
+    card.id="card";
 
     let img = document.createElement("img");
     img.src = dogs.image.url;
@@ -90,7 +116,7 @@ function mostraPagina(dogs) {
     card.appendChild(img);
     card.appendChild(footer);
     footer.appendChild(a);
-    dropDown(dogs);
+    card.append(dropdowndiv);
   })
 }
 getDogsData();
@@ -177,17 +203,4 @@ function mostrarErro() {
   column.appendChild(h1);
   column.appendChild(icon);
   column.appendChild(h2);
-}
-
-function dropDown(dogs){    //estou indeciso entre fazer dropdown assim ou clicar na imagem...
-  let one=document.getElementById("one");
-  one.innerText="Life-Span: "+dogs.life_span;
-  let two=document.getElementById("two");
-  two.innerText="Temperament: "+dogs.temperament;
-  let three=document.getElementById("three");
-  three.innerText="Breed for: "+dogs.bred_for;
-  let four=document.getElementById("four");
-  four.innerText="Weight: "+dogs.weight.imperial;
-  let five=document.getElementById("five");
-  five.innerText="Height: "+dogs.height.imperial;
 }
