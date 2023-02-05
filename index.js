@@ -20,12 +20,16 @@ function getDogsData() {
       }
       var butoes=document.getElementById("paginas");
       butoes.style.display="none"
+        var drop=document.getElementById("drop");
+        drop.style.display="none"
       mostrarErro();
     } else {
       if (document.getElementById("erro").children.length > 0) {
         document.getElementById("erro").replaceChildren();
         var butoes=document.getElementById("paginas");
         butoes.style.display="block";
+        var drop=document.getElementById("drop");
+        drop.style.display="block";
         /*aqui faz ao contrario, tira o erro e mete os cães caso se pesquise por um nome certo*/
       }
       mostraPagina(dogs);
@@ -62,7 +66,6 @@ function mostraPagina(dogs) {
   }
     dogs.forEach(dogs => {
     console.log(dogs);
-
     let div1 = document.createElement("div");
     div1.className = "col-sm-6 col-md-4 col-lg-3 gy-2";
 
@@ -87,6 +90,7 @@ function mostraPagina(dogs) {
     card.appendChild(img);
     card.appendChild(footer);
     footer.appendChild(a);
+    dropDown(dogs);
   })
 }
 getDogsData();
@@ -112,8 +116,8 @@ function updatePaginaAtual() {
 }
 /*botao back da pagina*/
 function botaoBack() {
+  let back=document.getElementById("back");
   if(paginaAtual===1){
-    let back=document.getElementById("back");
     back.ariaDisabled;
   }
   else{
@@ -124,8 +128,8 @@ function botaoBack() {
 }
 /*botao next da pagina*/
 function botaoNext() {
+  let next=document.getElementById("next");
   if(paginaAtual===8){
-    let next=document.getElementById("next");
     next.ariaInvalid;
   }
   else{
@@ -173,4 +177,17 @@ function mostrarErro() {
   column.appendChild(h1);
   column.appendChild(icon);
   column.appendChild(h2);
+}
+
+function dropDown(dogs){    //estou indeciso entre fazer dropdown assim ou clicar na imagem...
+  let one=document.getElementById("one");
+  one.innerText="Life-Span: "+dogs.life_span;
+  let two=document.getElementById("two");
+  two.innerText="Temperament: "+dogs.temperament;
+  let three=document.getElementById("three");
+  three.innerText="Breed for: "+dogs.bred_for;
+  let four=document.getElementById("four");
+  four.innerText="Weight: "+dogs.weight.imperial;
+  let five=document.getElementById("five");
+  five.innerText="Height: "+dogs.height.imperial;
 }
