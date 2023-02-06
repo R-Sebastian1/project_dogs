@@ -2,7 +2,6 @@ var paginaAtual = 1;
 let input = '';
 var limitPagina = 24;
 
-
 /*Aqui faz o fetch para depois fazer a paginação*/
 function getDogsData() {
   fetch(`http://localhost:3000/dogs?&_page=${paginaAtual}&_limit=${limitPagina}&name_like=${input}`)
@@ -12,7 +11,7 @@ function getDogsData() {
     return response.json();
   })
   /*aqui verifica se tem algum cao encontrado, se sim, mostra o cao, se não, aparece a msg erro*/
-  .then(dogs => {
+  .then(dogs => {    
     if (dogs.length === 0) {
       if (document.getElementById("caes").children.length > 0) { 
         document.getElementById("caes").replaceChildren();
