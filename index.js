@@ -63,7 +63,7 @@ function mostraPagina(dogs) {
     dogs.forEach(dogs => {
     console.log(dogs);
 
-    let dropdowndiv=document.createElement("div");
+        let dropdowndiv=document.createElement("div");
         dropdowndiv.className="dropdown container-fluid";
         dropdowndiv.id="drop";
         let dropdownul=document.createElement("ul");
@@ -76,8 +76,11 @@ function mostraPagina(dogs) {
         let dropdownspan2=document.createElement("span");
         let dropdownspan3=document.createElement("span");
         dropdownspan.className="dropdown-item";
+        dropdownspan.id="doginfo";
         dropdownspan2.className="dropdown-item";
+        dropdownspan2.id="doginfo";
         dropdownspan3.className="dropdown-item";
+        dropdownspan3.id="doginfo";
       
         dropdowndiv.appendChild(dropdownul);
         dropdownul.appendChild(dropdownli);
