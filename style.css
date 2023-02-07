@@ -181,10 +181,41 @@ i:hover {
 
 
 #next {
-  animation: shake 0.2s;
   background-color: #e3f2fd;
   border-color: #e3f2fd;
   color: black;
+  box-sizing: inherit;
+  background-color: #e5eaee;
+  border-radius: 5px;
+  background: #e5eaee;
+  padding: 1rem;
+  /*margin: 0.5rem auto;*/
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-weight: bold;
+}
+#back:hover{
+  animation: shake 0.2s;
+  background-color: #e3f2fd;
+  border-color: #e3f2fd;
+  color: rgb(121, 81, 81);
+  box-sizing: inherit;
+  background-color: #e5eaee;
+  border-radius: 5px;
+  background: #e5eaee;
+  padding: 1rem;
+  /*margin: 0.5rem auto;*/
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-weight: bold;
+}
+#next:hover{
+  animation: shake 0.2s;
+  background-color: #e3f2fd;
+  border-color: #e3f2fd;
+  color: rgb(121, 81, 81);
   box-sizing: inherit;
   background-color: #e5eaee;
   border-radius: 5px;
