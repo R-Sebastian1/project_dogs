@@ -18,7 +18,7 @@ function getDogsData() {
         /*aqui aparecem os cães, caso verifique que o nome introduzido não é igual a nome, passa para baixo e apresenta erro */
       }
       var butoes=document.getElementById("paginas");
-      butoes.style.display="none"
+      butoes.style.display="none";
       mostrarErro();
     } else {
       if (document.getElementById("erro").children.length > 0) {
@@ -49,7 +49,9 @@ searchButton.addEventListener("click", () => {
 });
 
 /*Aqui faz-se a criação das paginas com toda a informação lá dentro: img, nome, e o botao "download"*//*Vai buscar a primeira função*/
+
 function mostraPagina(dogs) {
+
   let firstDisplay = document.getElementById("caes");
   firstDisplay.className = "container-fluid";
 
@@ -62,36 +64,36 @@ function mostraPagina(dogs) {
     dogs.forEach(dogs => {
     console.log(dogs);
 
-        let dropdowndiv=document.createElement("div");
-        dropdowndiv.className="dropdown container-fluid";
-        dropdowndiv.id="drop";
-        let dropdownul=document.createElement("ul");
-        dropdownul.className="dropdown-menu";
-        dropdownul.id="dropinfo"
-        let dropdownli=document.createElement("li");
-        let dropdownli2=document.createElement("li");
-        let dropdownli3=document.createElement("li");
-        let dropdownspan=document.createElement("span");
-        let dropdownspan2=document.createElement("span");
-        let dropdownspan3=document.createElement("span");
-        dropdownspan.className="dropdown-item";
-        dropdownspan.id="doginfo";
-        dropdownspan2.className="dropdown-item";
-        dropdownspan2.id="doginfo";
-        dropdownspan3.className="dropdown-item";
-        dropdownspan3.id="doginfo";
-      
-        dropdowndiv.appendChild(dropdownul);
-        dropdownul.appendChild(dropdownli);
-        dropdownul.appendChild(dropdownli2);
-        dropdownul.appendChild(dropdownli3);
-        dropdownli.appendChild(dropdownspan);
-        dropdownli2.appendChild(dropdownspan2);
-        dropdownli3.appendChild(dropdownspan3);
-      
-        dropdownspan.innerText="Life Span: "+dogs.life_span;
-        dropdownspan2.innerText="Bred For: "+dogs.bred_for;
-        dropdownspan3.innerText="Temperament: "+dogs.temperament;
+    let dropdowndiv=document.createElement("div");
+  dropdowndiv.className="dropdown";
+  dropdowndiv.id="drop";
+  let dropdownul=document.createElement("ul");
+  dropdownul.className="dropdown-menu";
+  dropdownul.id="dropinfo"
+  let dropdownli=document.createElement("li");
+  let dropdownli2=document.createElement("li");
+  let dropdownli3=document.createElement("li");
+  let dropdownspan=document.createElement("span");
+  let dropdownspan2=document.createElement("span");
+  let dropdownspan3=document.createElement("span");
+  dropdownspan.className="dropdown-info";
+  dropdownspan.id="doginfo";
+  dropdownspan2.className="dropdown-info";
+  dropdownspan2.id="doginfo";
+  dropdownspan3.className="dropdown-info";
+  dropdownspan3.id="doginfo";
+
+  dropdowndiv.appendChild(dropdownul);
+  dropdownul.appendChild(dropdownli);
+  dropdownul.appendChild(dropdownli2);
+  dropdownul.appendChild(dropdownli3);
+  dropdownli.appendChild(dropdownspan);
+  dropdownli2.appendChild(dropdownspan2);
+  dropdownli3.appendChild(dropdownspan3);
+
+  dropdownspan.innerText="Life Span: "+dogs.life_span;
+  dropdownspan2.innerText="Bred For: "+dogs.bred_for;
+  dropdownspan3.innerText="Temperament: "+dogs.temperament;
 
     let div1 = document.createElement("div");
     div1.className = "col-sm-6 col-md-4 col-lg-3 gy-2";
@@ -118,8 +120,8 @@ function mostraPagina(dogs) {
     card.appendChild(img);
     card.appendChild(footer);
     footer.appendChild(a);
-    card.append(dropdowndiv);
-  })
+    card.appendChild(dropdowndiv);
+})
 }
 getDogsData();
 
