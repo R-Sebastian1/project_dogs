@@ -76,6 +76,10 @@ function mostraPagina(dogs) {
   let dropdownspan=document.createElement("span");
   let dropdownspan2=document.createElement("span");
   let dropdownspan3=document.createElement("span");
+  let heart=document.createElement("i");
+  heart.className="fa-solid fa-heart";
+  heart.id="heart";
+  
   dropdownspan.className="dropdown-info";
   dropdownspan.id="doginfo";
   dropdownspan2.className="dropdown-info";
@@ -92,6 +96,7 @@ function mostraPagina(dogs) {
   dropdownli3.appendChild(dropdownspan3);
 
   dropdownspan.innerText="Life Span: "+dogs.life_span;
+  dropdownspan.append(heart);
   dropdownspan2.innerText="Bred For: "+dogs.bred_for;
   dropdownspan3.innerText="Temperament: "+dogs.temperament;
 

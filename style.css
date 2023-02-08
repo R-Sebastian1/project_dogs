@@ -9,12 +9,12 @@ body {
 .navbar {
   background-color: #a4bfd2;
   border-radius: 5px;
-  background: linear-gradient(315deg, #2a2d2d, #c3c7cc);
+  background: linear-gradient(315deg, #2a2d2d, #c3c7cc, rgb(143, 140, 140));
   padding: 1rem;
-  margin: 0.5rem auto;
+  margin: 0rem auto;
   margin-bottom: 1.5rem;
   border-radius: 0.2rem;
-  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+  box-shadow: 0 6px 8px 0 rgba(0, 0, 0, 0.3);
 }
 
 h1 {
@@ -69,6 +69,7 @@ a:hover {
 .card {
   margin: 20px;
   margin-top: 15px;
+  border-color: #000000;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
 }
 
@@ -152,10 +153,22 @@ i:hover {
 }
 
 #numeroPagina {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+  box-sizing: inherit;
+  border-radius: 5px;
+  padding: 1rem;
+  /*margin: 0.5rem auto;*/
+  margin-bottom: 0.5rem;
+  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+  text-align: center;
+  font-weight: bold;
   padding-left: 20px;
   padding-right: 20px;
   margin-top: 15px;
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
   box-shadow: 0 4px 6px 0 rgb(189, 186, 186);
 }
 
@@ -164,30 +177,56 @@ i:hover {
 }
 
 #back {
-  background-color: #e3f2fd;
-  border-color: #e3f2fd;
-  color: black;
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
   box-sizing: inherit;
-  background-color: #e5eaee;
   border-radius: 5px;
-  background: #e5eaee;
   padding: 1rem;
   /*margin: 0.5rem auto;*/
   margin-bottom: 0.5rem;
-  box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
+  margin-right: 0.5rem;
   text-align: center;
   font-weight: bold;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  box-shadow: 0 4px 6px 0 rgb(189, 186, 186);
+}
+#heart{
+  color: rgb(143, 3, 3);
 }
 
 
 #next {
+  background-color: transparent;
+  border-color: transparent;
+  color: white;
+  box-sizing: inherit;
+  border-radius: 5px;
+  padding: 1rem;
+  /*margin: 0.5rem auto;*/
+  margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  text-align: center;
+  font-weight: bold;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-top: 15px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-weight: bold;
+  box-shadow: 0 4px 6px 0 rgb(189, 186, 186);
+}
+
+#back:hover {
+  animation: shake 0.2s;
   background-color: #e3f2fd;
   border-color: #e3f2fd;
-  color: black;
+  color: rgb(121, 81, 81);
   box-sizing: inherit;
-  background-color: #e5eaee;
   border-radius: 5px;
-  background: #e5eaee;
+  background: linear-gradient(315deg, #606363, #eff5fb);
   padding: 1rem;
   /*margin: 0.5rem auto;*/
   margin-bottom: 0.5rem;
@@ -195,15 +234,15 @@ i:hover {
   text-align: center;
   font-weight: bold;
 }
-#back:hover{
+
+#next:hover {
   animation: shake 0.2s;
   background-color: #e3f2fd;
   border-color: #e3f2fd;
   color: rgb(121, 81, 81);
   box-sizing: inherit;
-  background-color: #e5eaee;
   border-radius: 5px;
-  background: #e5eaee;
+  background: linear-gradient(315deg, #606363, #eff5fb);
   padding: 1rem;
   /*margin: 0.5rem auto;*/
   margin-bottom: 0.5rem;
@@ -211,30 +250,33 @@ i:hover {
   text-align: center;
   font-weight: bold;
 }
-#next:hover{
+
+#numeroPagina:hover {
   animation: shake 0.2s;
   background-color: #e3f2fd;
   border-color: #e3f2fd;
   color: rgb(121, 81, 81);
   box-sizing: inherit;
-  background-color: #e5eaee;
   border-radius: 5px;
-  background: #e5eaee;
+  background: linear-gradient(315deg, #606363, #eff5fb);
   padding: 1rem;
   /*margin: 0.5rem auto;*/
   margin-bottom: 0.5rem;
   box-shadow: 0 4px 6px 0 rgba(0, 0, 0, 0.3);
   text-align: center;
   font-weight: bold;
+
 }
 
 @media screen and (max-width: 600px) {
   .d-flex button:not(:first-child) {
     display: none;
   }
+
   .d-flex input {
     display: none;
   }
+
   .d-flex #burger {
     float: left;
     display: flex;
@@ -242,7 +284,7 @@ i:hover {
 }
 
 #paginas {
-  margin-top: 35px;
+  margin-top: 5px;
 }
 
 @media screen and (min-width: 600px) {
@@ -267,33 +309,43 @@ i:hover {
   0% {
     transform: translate(1px, 1px) rotate(0deg);
   }
+
   10% {
     transform: translate(-1px, -2px) rotate(-1deg);
   }
+
   20% {
     transform: translate(-3px, 0px) rotate(1deg);
   }
+
   30% {
     transform: translate(3px, 2px) rotate(0deg);
   }
+
   40% {
     transform: translate(1px, -1px) rotate(1deg);
   }
+
   50% {
     transform: translate(-1px, 2px) rotate(-1deg);
   }
+
   60% {
     transform: translate(-3px, 1px) rotate(0deg);
   }
+
   70% {
     transform: translate(3px, 1px) rotate(-1deg);
   }
+
   80% {
     transform: translate(-1px, -1px) rotate(1deg);
   }
+
   90% {
     transform: translate(1px, 2px) rotate(0deg);
   }
+
   100% {
     transform: translate(1px, -2px) rotate(-1deg);
   }
