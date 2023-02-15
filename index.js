@@ -153,7 +153,7 @@ function updatePaginaAtual() {
 function botaoBack() {
   let back=document.getElementById("back");
   if(paginaAtual===1){
-    back.ariaDisabled;
+   back.ariaDisabled;
   }
   else{
     paginaAtual--;
